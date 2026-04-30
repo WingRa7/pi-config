@@ -1,0 +1,12 @@
+{
+  "lastChangelogVersion": "0.70.6",
+  "defaultProvider": "google",
+  "defaultModel": "gemini-3.1-flash-lite-preview",
+  "defaultThinkingLevel": "medium",
+  "hideThinkingBlock": false,
+  "terminal": {
+    "imageWidthCells": 60
+  },
+  "editorPaddingX": 0,
+  "theme": "dark"
+}
