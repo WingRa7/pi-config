@@ -74,6 +74,7 @@ Pi is configured to minimize planning friction and get straight to execution. Th
 - `seo-schema`
 - `seo-sitemap`
 - `seo-technical`
+- `vercel-blob-cli`
 - `vercel-composition-patterns`
 - `vercel-react-best-practices`
 - `web-design-guidelines`
