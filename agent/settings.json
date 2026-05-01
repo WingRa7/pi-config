@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.70.6",
+  "lastChangelogVersion": "0.71.1",
   "defaultProvider": "google",
   "defaultModel": "gemini-3.1-pro-preview",
   "defaultThinkingLevel": "medium",
@@ -12,6 +12,10 @@
   "enabledModels": [
     "google/gemini-3.1-flash-lite-preview",
     "google/gemini-3.1-pro-preview",
-    "google/gemini-3.1-pro-preview-customtools"
+    "google/gemini-3.1-pro-preview-customtools",
+    "opencode/big-pickle"
+  ],
+  "packages": [
+    "npm:@ff-labs/pi-fff"
   ]
 }

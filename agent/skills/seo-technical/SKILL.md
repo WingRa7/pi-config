@@ -104,7 +104,7 @@ Allow: /
   - INP replaced FID on March 12, 2024. FID was fully removed from all Chrome tools (CrUX API, PageSpeed Insights, Lighthouse) on September 9, 2024. Do NOT reference FID anywhere.
 - **CLS** (Cumulative Layout Shift): target <0.1
 - Evaluation uses 75th percentile of real user data
-- Use PageSpeed Insights API or CrUX data if MCP available
+- Use PageSpeed Insights or CrUX data for field metrics
 
 ### 7. Structured Data
 - Detection: JSON-LD (preferred), Microdata, RDFa
@@ -154,14 +154,6 @@ Google updated its JavaScript SEO documentation in December 2025 with critical c
 ### High Priority (fix within 1 week)
 ### Medium Priority (fix within 1 month)
 ### Low Priority (backlog)
-
-## DataForSEO Integration (Optional)
-
-If DataForSEO MCP tools are available, use `on_page_instant_pages` for real page analysis (status codes, page timing, broken links, on-page checks), `on_page_lighthouse` for Lighthouse audits (performance, accessibility, SEO scores), and `domain_analytics_technologies_domain_technologies` for technology stack detection.
-
-## Google API Integration (Optional)
-
-If Google API credentials are configured, use `python scripts/pagespeed_check.py <url> --json` for real PSI + CrUX field data (replaces lab-only CWV estimates), `python scripts/crux_history.py <url> --json` for 25-week CWV trends, and `python scripts/gsc_inspect.py <url> --json` for real indexation status per URL.
 
 ## Error Handling
 
