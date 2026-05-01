@@ -17,14 +17,13 @@ Pi's context and memory are built directly around my Obsidian vault. The agent u
 ### Vault Integration (`/Users/raine/Obsidian/RaineTech`)
 
 ```text
-/Users/raine/Obsidian/RaineTech
+/Users/[YourUser]/Obsidian/[YourVaultName]
 ├── 00_System
 │   ├── Inbox.md         (Pi systematically appends raw thoughts/tasks here)
 │   ├── Tasks.base
 │   └── Templates/
 ├── 10_Agents
-│   ├── Agent_Inbox_Processor.md
-│   └── AGENTS.md
+│   └── AGENTS.md        (Obsidian specific knowledge for agents, commands etc)
 ├── 20_Recipes/          (Project templates & boilerplates)
 ├── 30_Snippets/         (Code solutions & problem fixes)
 ├── 40_Library/          
@@ -33,7 +32,7 @@ Pi's context and memory are built directly around my Obsidian vault. The agent u
 
 ### Agent Configuration (`~/.pi/agent`)
 
-- **`agent/SYSTEM.md`**: The global system profile. This file defines my identity, neurodivergent working context (prioritizing action over endless planning), preferred tech stack (React, Next.js, Tailwind, etc.), and strict implementation disciplines for the agent.
+- **`agent/SYSTEM.md`**: The global system profile. This file defines my identity, my working context (prioritizing action over endless planning), preferred tech stack (React, Next.js, Tailwind, etc.), and strict implementation disciplines for the agent.
 - **`agent/SYSTEM.example.md`**: A templated version of the system profile that can be adapted for new projects or by others looking to create their own Pi configuration. Remember to rename it after customising it for yourself.
 - **`agent/skills/`**: A collection of specialized tools and instructions covering domains like SEO audits, Vercel deployments, Next.js best practices, and more. Some like `ochestrator` are key to my system, but the rest care optional and mostly suited my preferences as a developer. Remove the skills you don't need and add the ones you do need by using `pi install git:github.com/user/repo` or the `npx skills` command and the directory at https://skills.sh/.
 - **`agent/extensions/`**: Custom TypeScript extensions that grant Pi specific abilities, such as web scraping, searching, safe bash execution, and memory management. Here is where the `subagents` are located and many of tthese extensions are used for highly focused subagents.
@@ -47,12 +46,13 @@ Pi is configured to minimize planning friction and get straight to execution. Th
 4. **Investigate Before Fixing:** Observe, hypothesize, verify, fix.
 5. **Verify Before Claiming Done:** Run the tests, check the output.
 
-## Installed skills Skills
+## Pre-Installed skills
 
 **Current Skills:**
 - `agent-browser`
 - `convex-quickstart`
 - `deploy-to-vercel`
+- `media-optimizer`
 - `next-best-practices`
 - `orchestrator`
 - `seo`
