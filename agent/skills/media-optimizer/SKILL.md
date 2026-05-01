@@ -7,9 +7,10 @@ Use this skill when the user asks to "optimize this media", "compress this image
 
 ## General Workflow
 1. **Inspect:** Run `ls -lh <file>` and optionally `ffprobe -hide_banner <file>` to check the original file size, codecs, and resolution.
-2. **Convert/Compress:** Run the appropriate `ffmpeg` command (see Reference below) based on the user's request.
-3. **Verify:** Run `ls -lh <new-file>` to get the new file size.
-4. **Report:** Provide the user with a concise "Savings Report" comparing the original size to the new size (e.g., "Reduced from 45MB to 3.2MB (92% savings)").
+2. **Determine Dimensions (Interactive):** If resizing, cropping, or aspect-ratio changes are requested (or if the file is massive and likely needs downsizing), use the `ask_user_question` tool to ask the user for their desired target width and aspect ratio (e.g., "16:9", "1:1", or "keep original").
+3. **Convert/Compress:** Run the appropriate `ffmpeg` command (see Reference below) based on the user's request. Calculate dimensions and append video filters (`-vf`) as needed.
+4. **Verify:** Run `ls -lh <new-file>` to get the new file size.
+5. **Report:** Provide the user with a concise "Savings Report" comparing the original size to the new size (e.g., "Reduced from 45MB to 3.2MB (92% savings)").
 
 ## FFMPEG Command Reference
 
@@ -55,6 +56,25 @@ ffmpeg -i input.mov -c:v libx264 -preset slow -crf 24 -movflags +faststart -map_
 ```bash
 ffmpeg -i input.mov -c:v libx264 -preset slow -crf 24 -movflags +faststart -map_metadata -1 -an output.mp4
 ```
+
+### 4. Smart Cropping & Resizing
+When the user specifies a target width and aspect ratio, calculate the target height. Use `ffmpeg`'s `scale` and `crop` filters to perform a "Smart Center Crop." This scales the media so the smallest dimension matches the target, then crops the overflow from the center (preventing stretching).
+
+**Scale & Keep Aspect Ratio (e.g., Width 1200px):**
+```bash
+ffmpeg -i input.jpg -vf "scale=1200:-1" -c:v libwebp ... output.webp
+```
+
+**Smart Center Crop (e.g., Target 800x800 for 1:1 Aspect Ratio):**
+```bash
+ffmpeg -i input.jpg -vf "scale=800:800:force_original_aspect_ratio=increase,crop=800:800" -c:v libwebp ... output.webp
+```
+
+**Smart Center Crop (e.g., Target 1920x1080 for 16:9 Aspect Ratio):**
+```bash
+ffmpeg -i input.jpg -vf "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080" -c:v libwebp ... output.webp
+```
+*(Note: These `-vf` filter chains can be applied to both images and videos).*
 
 ## Important Notes
 - Always check if the file exists before running commands.
