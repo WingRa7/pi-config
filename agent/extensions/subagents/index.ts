@@ -253,10 +253,10 @@ async function buildPiArgs(
 	// Use --no-extensions then add only what we need
 	args.push("--no-extensions");
 
-	if (builtinTools.length > 0) {
-		args.push("--tools", builtinTools.join(","));
+	if (agent.tools.length > 0) {
+		args.push("--tools", agent.tools.join(","));
+		args.push("--no-builtin-tools");
 	} else {
-		// No builtin tools needed — disable defaults so only extension tools are available
 		args.push("--no-tools");
 	}
 
