@@ -1,15 +1,42 @@
 # Pi Config (`pi-config`)
 
-Welcome to my personal AI agent configuration repository. This folder (`~/.pi`) acts as the brain and environment for **Pi**, my personalized AI assistant powered by the Day 1 Agents framework. 
+Welcome to my personal AI agent configuration repository. This folder (`~/.pi`) acts as the brain and environment for **Pi**, my personalized AI assistant. 
 
 This repository centralises my working environment context, preferences, skills, and extensions to ensure Pi works exactly how I need it to, wherever I invoke it.
 
+Install Pi with 
+```bash
+npm install -g @mariozechner/pi-coding-agent
+```
+After running `Pi` run `/login` to add your provider API key and then copy this repo into your `~/.pi` directory. For more info see https://pi.dev/docs/latest
+
 ## Structure
 
+Pi's context and memory are built directly around my Obsidian vault. The agent uses the highly capable `obsidian` CLI to systematically read, search, and append tasks/notes directly to my second brain.
+
+### Vault Integration (`/Users/raine/Obsidian/RaineTech`)
+
+```text
+/Users/raine/Obsidian/RaineTech
+├── 00_System
+│   ├── Inbox.md         (Pi systematically appends raw thoughts/tasks here)
+│   ├── Tasks.base
+│   └── Templates/
+├── 10_Agents
+│   ├── Agent_Inbox_Processor.md
+│   └── AGENTS.md
+├── 20_Recipes/          (Project templates & boilerplates)
+├── 30_Snippets/         (Code solutions & problem fixes)
+├── 40_Library/          
+└── 50_Tasks/            (Processed actionable tasks go here)
+```
+
+### Agent Configuration (`~/.pi/agent`)
+
 - **`agent/SYSTEM.md`**: The global system profile. This file defines my identity, neurodivergent working context (prioritizing action over endless planning), preferred tech stack (React, Next.js, Tailwind, etc.), and strict implementation disciplines for the agent.
-- **`agent/SYSTEM.example.md`**: A templated version of the system profile that can be adapted for new projects or by others looking to create their own Pi configuration.
-- **`agent/skills/`**: A collection of specialized tools and instructions (symlinked to central repositories) covering domains like SEO audits, Vercel deployments, Next.js best practices, and more.
-- **`agent/extensions/`**: Custom TypeScript extensions that grant Pi specific abilities, such as web scraping, searching, safe bash execution, and memory management.
+- **`agent/SYSTEM.example.md`**: A templated version of the system profile that can be adapted for new projects or by others looking to create their own Pi configuration. Remember to rename it after customising it for yourself.
+- **`agent/skills/`**: A collection of specialized tools and instructions covering domains like SEO audits, Vercel deployments, Next.js best practices, and more. Some like `ochestrator` are key to my system, but the rest care optional and mostly suited my preferences as a developer. Remove the skills you don't need and add the ones you do need by using `pi install git:github.com/user/repo` or the `npx skills` command and the directory at https://skills.sh/.
+- **`agent/extensions/`**: Custom TypeScript extensions that grant Pi specific abilities, such as web scraping, searching, safe bash execution, and memory management. Here is where the `subagents` are located and many of tthese extensions are used for highly focused subagents.
 
 ## Philosophy
 
@@ -20,9 +47,7 @@ Pi is configured to minimize planning friction and get straight to execution. Th
 4. **Investigate Before Fixing:** Observe, hypothesize, verify, fix.
 5. **Verify Before Claiming Done:** Run the tests, check the output.
 
-## Installed Skills
-
-These skills give Pi specialized expertise and workflows. They are installed via [skills.sh](https://skills.sh/). 
+## Installed skills Skills
 
 **Current Skills:**
 - `agent-browser`
@@ -52,12 +77,6 @@ These skills give Pi specialized expertise and workflows. They are installed via
 - `vercel-composition-patterns`
 - `vercel-react-best-practices`
 - `web-design-guidelines`
-
-**How to Install These Skills:**
-
-Because these skills are critical to the `pi-config` environment, they are hardcoded directly into the repository. If you clone this repository, you already have all the skills configured.
-
-There is no need to run massive install commands or use symlinks. Just clone and go!
 
 ## How It Works
 

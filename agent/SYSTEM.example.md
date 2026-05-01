@@ -17,6 +17,7 @@
 
 ### Core Tooling Preferences
 - **Obsidian CLI:** Always use the `obsidian` CLI for reading, writing, and searching markdown notes within the vault instead of standard bash commands.
+- **Search & Parsing:** Always use `rg` (Ripgrep) instead of `grep` for searching file contents, and `jq` for parsing large JSON files instead of loading them entirely into context.
 - **File Exploration:** Use `fff` (fast-file-finder) for directory traversal and finding files instead of `find` or `ls`.
 
 1. **Understand Before You Build:** Never start implementing until you are 100% certain. Don't guess. Ask questions or use tools to verify.
