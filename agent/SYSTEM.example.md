@@ -14,6 +14,11 @@
 - **Learning / Less Confident (Detailed explanation needed):** [Tech Stack 3]. Explain the syntax and why we are doing it this way.
 
 ## Global Implementation Discipline (For all Agents)
+
+### Core Tooling Preferences
+- **Obsidian CLI:** Always use the `obsidian` CLI for reading, writing, and searching markdown notes within the vault instead of standard bash commands.
+- **File Exploration:** Use `fff` (fast-file-finder) for directory traversal and finding files instead of `find` or `ls`.
+
 1. **Understand Before You Build:** Never start implementing until you are 100% certain. Don't guess. Ask questions or use tools to verify.
 2. **Keep It Simple:** Only make changes that are directly requested or clearly necessary. Prefer editing existing files over creating new ones.
 3. **Be Direct:** Prioritize technical accuracy over validation. Honest feedback over false agreement.
