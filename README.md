@@ -20,22 +20,32 @@ Pi's context and memory are built directly around my Obsidian vault. The agent u
 /Users/[YourUser]/Obsidian/[YourVaultName]
 ├── 00_System
 │   ├── Inbox.md         (Pi systematically appends raw thoughts/tasks here)
-│   ├── Tasks.base
-│   └── Templates/
+│   └── Templates/       (Strict YAML schemas for Snippets, Recipes, Library, and Tasks)
 ├── 10_Agents
 │   └── AGENTS.md        (Obsidian specific knowledge for agents, commands etc)
 ├── 20_Recipes/          (Project templates & boilerplates)
 ├── 30_Snippets/         (Code solutions & problem fixes)
-├── 40_Library/          
-└── 50_Tasks/            (Processed actionable tasks go here)
+├── 40_Library/          (Wiki/Map of Content for tools, frameworks, and concepts)
+├── 50_Tasks/            (Active tasks sorted automatically by status: NOW/NEXT/LATER)
+└── 60_Archive/          (Completed tasks automatically moved here)
 ```
+
+### Automated Obsidian Workflows (Subagents & Extensions)
+
+This environment features a suite of highly-focused subagents that act as an automated backend for your Obsidian vault. They format data, link concepts, and sort tasks to minimize planning friction.
+
+*   **`/inbox-tidy`**: Triggers the `obsidian-inbox-processor`. Reads `00_System/Inbox.md`, parses the brain dump, and automatically files items into `30_Snippets/`, `20_Recipes/`, `40_Library/`, or individual files in `50_Tasks/` using strict templates.
+*   **`/eod` (End of Day)**: Triggers three parallel maintenance subagents:
+    1.  **`obsidian-task-archiver`**: Finds all `DONE` tasks in `50_Tasks/`, injects a completion date, and moves them to `60_Archive/` to reduce visual clutter.
+    2.  **`obsidian-knowledge-linker`**: Scans snippets and recipes, automatically identifying topics to inject `[[Wikilinks]]` referencing Library files, building a relational knowledge base automatically.
+    3.  **`obsidian-task-sorter`**: Analyzes the active tasks in `50_Tasks/`, scores them based on tech-stack relevance, actionability, and age, and strictly limits your `NOW` backlog to 3 tasks, pushing the rest to `NEXT` or `LATER`.
 
 ### Agent Configuration (`~/.pi/agent`)
 
 - **`agent/SYSTEM.md`**: The global system profile. This file defines my identity, my working context (prioritizing action over endless planning), preferred tech stack (React, Next.js, Tailwind, etc.), and strict implementation disciplines for the agent.
 - **`agent/SYSTEM.example.md`**: A templated version of the system profile that can be adapted for new projects or by others looking to create their own Pi configuration. Remember to rename it after customising it for yourself.
-- **`agent/skills/`**: A collection of specialized tools and instructions covering domains like SEO audits, Vercel deployments, Next.js best practices, and more. Some like `ochestrator` are key to my system, but the rest care optional and mostly suited my preferences as a developer. Remove the skills you don't need and add the ones you do need by using `pi install git:github.com/user/repo` or the `npx skills` command and the directory at https://skills.sh/.
-- **`agent/extensions/`**: Custom TypeScript extensions that grant Pi specific abilities, such as web scraping, searching, safe bash execution, and memory management. Here is where the `subagents` are located and many of tthese extensions are used for highly focused subagents.
+- **`agent/skills/`**: A collection of specialized tools and instructions covering domains like SEO audits, Vercel deployments, Next.js best practices, and more. Some like `ochestrator` are key to my system, but the rest are optional and mostly suited to my preferences as a developer. Remove the skills you don't need and add the ones you do need by using `pi install git:github.com/user/repo` or the `npx skills` command and the directory at https://skills.sh/.
+- **`agent/extensions/`**: Custom TypeScript extensions that grant Pi specific abilities, such as web scraping, searching, safe bash execution, memory management, and our custom Obsidian subagents (`obsidian-inbox`, `obsidian-maintenance`, etc.).
 
 ## Philosophy
 
@@ -57,17 +67,12 @@ Pi is configured to minimize planning friction and get straight to execution. Th
 - `orchestrator`
 - `seo`
 - `seo-audit`
-- `seo-backlinks`
 - `seo-competitor-pages`
 - `seo-content`
-- `seo-dataforseo`
 - `seo-geo`
-- `seo-google`
 - `seo-hreflang`
-- `seo-image-gen`
 - `seo-images`
 - `seo-local`
-- `seo-maps`
 - `seo-page`
 - `seo-plan`
 - `seo-programmatic`
