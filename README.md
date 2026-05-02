@@ -34,6 +34,8 @@ Pi's context and memory are built directly around my Obsidian vault. The agent u
 
 This environment features a suite of highly-focused subagents that act as an automated backend for your Obsidian vault. They format data, link concepts, and sort tasks to minimize planning friction.
 
+**Note on Configuration:** For any extensions that require knowing your specific vault path (like `obsidian-maintenance` or `obsidian-inbox`), you can configure the path by creating a `config.json` inside the extension's folder (e.g. `~/.pi/agent/extensions/obsidian-maintenance/config.json`) based on the provided `config.example.json`. This keeps your absolute paths out of version control.
+
 *   **`/inbox-tidy`**: Triggers the `obsidian-inbox-processor`. Reads `00_System/Inbox.md`, parses the brain dump, and automatically files items into `30_Snippets/`, `20_Recipes/`, `40_Library/`, or individual files in `50_Tasks/` using strict templates.
 *   **`/eod` (End of Day)**: Triggers three parallel maintenance subagents:
     1.  **`obsidian-task-archiver`**: Finds all `DONE` tasks in `50_Tasks/`, injects a completion date, and moves them to `60_Archive/` to reduce visual clutter.

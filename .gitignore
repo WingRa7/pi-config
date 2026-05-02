@@ -7,3 +7,4 @@ agent/sessions/
 auth.json
 *.env
 *.env.*
+agent/extensions/**/config.json
