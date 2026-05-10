@@ -1,7 +1,7 @@
 {
   "lastChangelogVersion": "0.73.0",
-  "defaultProvider": "omlx",
-  "defaultModel": "gemma-4-26b-a4b-it-4bit",
+  "defaultProvider": "google",
+  "defaultModel": "gemini-3.1-flash-lite-preview",
   "defaultThinkingLevel": "high",
   "hideThinkingBlock": false,
   "terminal": {
@@ -13,8 +13,7 @@
     "google/gemini-3.1-flash-lite-preview",
     "google/gemini-3.1-pro-preview",
     "google/gemini-3.1-pro-preview-customtools",
-    "opencode/big-pickle",
-    "omlx/gemma-4-26b-a4b-it-4bit"
+    "opencode/big-pickle"
   ],
   "packages": [
     "npm:@ff-labs/pi-fff"

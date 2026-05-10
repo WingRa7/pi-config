@@ -33,11 +33,10 @@ Your goal is to empty `00_System/Inbox.md` by parsing its contents and sorting t
         2. Create the file: `obsidian create path="50_Tasks/<filename>" template="Template_Task"`
         3. Read the file to ensure it was created correctly.
         4. Append the content: `obsidian append path="50_Tasks/<filename>" content="<Task description>"`
+        5. Update the created date: `yq -i '.created = "'$(date +%Y-%m-%d)'"' "50_Tasks/<filename>.md"`
 4. **Clear the Inbox:** Once ALL items are safely moved, overwrite the Inbox to be empty (preserving the top header/instructions).
     *   CRITICAL: Do NOT duplicate the `# Inbox` title. Overwrite the file using this exact bash command to ensure it's clean:
         `cat << 'EOF' > 00_System/Inbox.md`
-        `# Inbox`
-        
         `*Dump all links, snippets, ideas, and fleeting thoughts here. Do not organise them. The Obsidian Inbox Processor Agent will sort this periodically.*`
         
         `---`

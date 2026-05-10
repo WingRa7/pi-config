@@ -1,0 +1,10 @@
+{
+  "google": {
+    "type": "api_key",
+    "key": "your api key here from the google ai studio"
+  },
+  "opencode": {
+    "type": "api_key",
+    "key": "your api key here from the opencode zen dashboard"
+  }
+}

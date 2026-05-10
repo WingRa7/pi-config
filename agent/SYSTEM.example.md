@@ -8,6 +8,9 @@
 - **Language:** Always use [Your Preferred English, e.g., British English] spelling and terminology.
 - **Package Manager:** ALWAYS use `[Your Preferred Package Manager, e.g., pnpm and pnpm dlx]` where possible. Do not use `npm` or `npx` unless strictly required.
 
+## Service Accounts & CLI Context
+- **Vercel Team Scope:** `<your-team-scope>`
+
 ## Preferred Tech Stack & AI Assistance Needs
 - **Fluent (Minimal explanation needed):** [Tech Stack 1]. Provide the code/solution directly.
 - **Competent (Provide standard context):** [Tech Stack 2].

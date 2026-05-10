@@ -4,6 +4,8 @@ agent/SYSTEM.md
 agent/extensions/node_modules/
 agent/auth.json
 agent/sessions/
+agent/models.json
+models.json
 auth.json
 *.env
 *.env.*

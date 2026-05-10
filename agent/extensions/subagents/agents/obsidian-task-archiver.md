@@ -18,15 +18,12 @@ Your goal is to act as a janitor for the `50_Tasks/` directory, moving completed
    Check if the `60_Archive/` directory exists in the vault. If not, use `safe_bash` to create it: `mkdir -p 60_Archive`
 
 2. **Find Completed Tasks:**
-   Use `safe_bash` (e.g., `grep`) to search the `50_Tasks/` folder for any markdown files where the YAML frontmatter contains `status: DONE` (or `Done`, `done`).
+   Use `safe_bash` (e.g., `grep`) to search the `50_Tasks/` folder for any markdown files where the YAML frontmatter contains `completed: true`.
    
 3. **Process Each Task:**
    For every completed task found:
    * Read the file to verify it's a completed task.
-   * Check if it has a `completed:` field in the YAML frontmatter. If it does not, use `sed -i ''` (macOS syntax) to inject the current date (YYYY-MM-DD) into the frontmatter.
-     Example: `sed -i '' '/^status:/a \
-completed: YYYY-MM-DD
-' "50_Tasks/<filename>.md"`
+   * If the `completed` value is `true`, replace it with the current date (YYYY-MM-DD) to finalize the archival timestamp.
    * Use `mv` to move the file from `50_Tasks/<filename>.md` to `60_Archive/<filename>.md`.
    
 4. **Report:**
