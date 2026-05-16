@@ -1,7 +1,7 @@
 {
-  "lastChangelogVersion": "0.73.0",
-  "defaultProvider": "omlx",
-  "defaultModel": "gemma-4-26b-a4b-it-4bit",
+  "lastChangelogVersion": "0.73.1",
+  "defaultProvider": "opencode",
+  "defaultModel": "big-pickle",
   "defaultThinkingLevel": "high",
   "hideThinkingBlock": false,
   "terminal": {
